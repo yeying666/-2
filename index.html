@@ -60,6 +60,20 @@
             padding: 2.5rem 1.5rem;
             border: 1px solid rgba(255, 215, 140, 0.3);
             box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('mao.png') center/cover no-repeat;
+            opacity: 0.15;
+            z-index: -1;
         }
 
         .hero h1 {
@@ -111,6 +125,84 @@
             font-size: 1.05rem;
             line-height: 1.5;
             box-shadow: 0 12px 20px rgba(0,0,0,0.3);
+        }
+
+        /* 图片展示区 */
+        .gallery-section {
+            margin-bottom: 3rem;
+        }
+
+        .gallery-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #ffdd99;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: rgba(25, 40, 28, 0.9);
+            border: 2px solid rgba(210, 180, 100, 0.3);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            border-color: #f7b05e;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            padding: 1.2rem;
+            text-align: center;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .gallery-caption h4 {
+            color: #ffdd99;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .gallery-caption p {
+            color: #d9e6b3;
+            font-size: 0.9rem;
+        }
+
+        .gallery-item .img-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.7) 100%);
+            pointer-events: none;
         }
 
         /* 攻略卡片网格 */
@@ -220,19 +312,199 @@
             padding-top: 1.5rem;
         }
 
+        /* 标题两侧图片 */
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            border: 3px solid rgba(255, 200, 100, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .hero-text {
+            text-align: center;
+        }
+
+        /* 往期比赛录像区 */
+        .video-section {
+            margin-bottom: 3rem;
+            background: rgba(30, 50, 35, 0.8);
+            border-radius: 32px;
+            padding: 2rem;
+            border: 1px solid rgba(210, 180, 100, 0.3);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .video-category {
+            background: rgba(20, 35, 25, 0.9);
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 180, 80, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+        }
+
+        .video-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            border-color: #f7b05e;
+        }
+
+        .category-title {
+            font-size: 1.4rem;
+            color: #ffdd99;
+            margin-bottom: 1rem;
+            text-align: center;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px dashed rgba(210, 180, 100, 0.4);
+        }
+
+        .video-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .video-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #2c4b35, #1e3827);
+            color: #ffecb3;
+            text-decoration: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(210, 180, 100, 0.3);
+        }
+
+        .video-link:hover {
+            background: linear-gradient(135deg, #e7a33e, #f7b05e);
+            color: #1e2a1c;
+            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* 特色展示区 */
+        .feature-banner {
+            background: linear-gradient(135deg, rgba(40, 80, 50, 0.9), rgba(30, 60, 40, 0.9));
+            border-radius: 32px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            border: 2px solid rgba(255, 180, 80, 0.4);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            flex-wrap: wrap;
+        }
+
+        .feature-banner img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            border: 3px solid rgba(255, 200, 100, 0.5);
+        }
+
+        .feature-content {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .feature-content h3 {
+            font-size: 1.8rem;
+            color: #ffdd99;
+            margin-bottom: 1rem;
+        }
+
+        .feature-content p {
+            color: #d9e6b3;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        /* 跑动的猫咪 */
+        .running-cat {
+            position: fixed;
+            width: 120px;
+            height: 120px;
+            z-index: 9999;
+            pointer-events: none;
+            transition: transform 0.1s linear;
+        }
+
+        .running-cat img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+        }
+
+        @keyframes catBounce {
+            0%, 100% { transform: translateY(0) scaleX(1); }
+            50% { transform: translateY(-15px) scaleX(1); }
+        }
+
+        .running-cat.running {
+            animation: catBounce 0.3s ease-in-out infinite;
+        }
+
+        .running-cat.left {
+            transform: scaleX(-1);
+        }
+
         @media (max-width: 680px) {
             body { padding: 1rem; }
             .hero h1 { font-size: 2.3rem; }
             .intro-card { padding: 1.2rem; }
             .card h3 { font-size: 1.5rem; }
+            .gallery-item img { height: 200px; }
+            .feature-banner { flex-direction: column; text-align: center; }
+            .feature-banner img { width: 100%; max-width: 300px; height: auto; }
+            .running-cat { width: 80px; height: 80px; }
+            .hero-img { width: 80px; height: 80px; }
+            .hero-content { gap: 1rem; }
         }
     </style>
 </head>
 <body>
+<div class="running-cat" id="runningCat">
+    <img src="mao.png" alt="跑动的猫咪">
+</div>
+
 <div class="container">
     <div class="hero">
-        <h1>🐾 宠物森林2 · 攻略站</h1>
-        <div class="sub"> 资深训练师笔记</div>
+        <div class="hero-content">
+            <img src="fengse.jpeg" alt="防御技能" class="hero-img">
+            <div class="hero-text">
+                <h1>🐾 宠物森林2 · 攻略站</h1>
+                <div class="sub">资深训练师笔记</div>
+            </div>
+            <img src="long.jpeg" alt="龙系宠物" class="hero-img">
+        </div>
         <div class="badge-group">
             <div class="badge">🌟 全宠物图鉴</div>
             <div class="badge">⚔️ 技能搭配</div>
@@ -245,11 +517,37 @@
         🌱 欢迎来到《宠物森林2》冒险世界！这里为你整理了核心玩法、专属宠物养成技巧以及稀有道具获取路线。点击下方卡片，直达详细攻略页。
     </div>
 
-    <!-- 攻略卡片区（链接到你的子页面） 
-         注意：由于原文件名包含空格和括号，可能需调整，但相对路径保留原名。
-         建议你在GitHub重命名这些文件去掉空格和括号，然后修改下方href。
-         下方提供两种写法，你可以直接修改 href="" 里的路径。
-    -->
+    <!-- 往期比赛录像 -->
+    <div class="video-section">
+        <h2 class="gallery-title">🎬 往期比赛录像</h2>
+        <div class="video-grid">
+            <div class="video-category">
+                <h3 class="category-title">🏆 殿军赛</h3>
+                <div class="video-links">
+                    <a href="https://www.bilibili.com/video/BV1YxUTBbET6/" target="_blank" class="video-link">📹 第一场</a>
+                    <a href="https://www.bilibili.com/video/BV1GxUTBbE56/" target="_blank" class="video-link">📹 第二场</a>
+                    <a href="https://www.bilibili.com/video/BV13xUTBbE27/" target="_blank" class="video-link">📹 第三场</a>
+                </div>
+            </div>
+            <div class="video-category">
+                <h3 class="category-title">🥉 季军赛</h3>
+                <div class="video-links">
+                    <a href="https://www.bilibili.com/video/BV1FgUTB6EFL/" target="_blank" class="video-link">📹 第一场</a>
+                    <a href="https://www.bilibili.com/video/BV1FGUTBuEEK/" target="_blank" class="video-link">📹 第二场</a>
+                    <a href="https://www.bilibili.com/video/BV1JgUTBzEs8/" target="_blank" class="video-link">📹 第三场</a>
+                </div>
+            </div>
+            <div class="video-category">
+                <h3 class="category-title">🥇 冠亚军赛</h3>
+                <div class="video-links">
+                    <a href="https://www.bilibili.com/video/BV1UZUkBWERM" target="_blank" class="video-link">📹 第一场</a>
+                    <a href="https://www.bilibili.com/video/BV1UZUkBWEc4/" target="_blank" class="video-link">📹 第二场</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 攻略卡片区 -->
     <div class="grid">
         <!-- 卡片1：定制攻略 -->
         <div class="card">
@@ -267,7 +565,7 @@
             <a href="./petsinfo_private.html" class="btn">查看详情 ➡️</a>
         </div>
 
-        <!-- 卡片3：RP技能卡（第一个）注意原文件有两个类似，都指向主要那个 -->
+        <!-- 卡片3：RP技能卡 -->
         <div class="card">
             <div class="card-icon">✨</div>
             <h3>骑宠天性</h3>
@@ -280,19 +578,17 @@
             <div class="card-icon">⚡</div>
             <h3>技能卡·进阶版</h3>
             <p>包含隐藏觉醒技能及最新资料片的战斗数据。</p>
-            <!-- 注意：原文件名为 skillcard_private (1).html 有空格和括号，编码可能显示为%20等。为了避免错误，要么先去GitHub改名为 skillcard_private_1.html 。
-                 下面使用实际存在的文件名，建议你去重命名，并把下面链接改成 ./skillcard_private_1.html -->
             <a href="./skillcard_private.html" class="btn">查看详情 ➡️</a>
         </div>
     </div>
 
-    <!-- 额外增加一个常用链接区（可选，如果还有rpskill_private (1).html 也可以添加，但避免重复）-->
+    <!-- 小贴士区域 -->
     <div class="tips-box">
         <div class="tips-text">
             <span>🍄 冒险小贴士</span> 纯属个人更新
         </div>
         <div class="tips-text">
-            📢 其他攻略：<a href="./rpskill_private.html" style="color:#ffcd7e;">请勿点击</a> 
+            📢 其他攻略：<a href="./rpskill_private%20(1).html" style="color:#ffcd7e;">请勿点击</a> 
             &nbsp;|&nbsp; <a href="./README" style="color:#ffcd7e;">请勿点击</a>
         </div>
     </div>
@@ -302,6 +598,71 @@
     </div>
 </div>
 
-<!-- 说明：若某些页面无法打开，请检查文件名是否包含空格/括号，建议在GitHub中重命名去掉特殊符号，并修正链接 -->
+<script>
+    // 跑动的猫咪动画
+    const cat = document.getElementById('runningCat');
+    let catX = 0;
+    let catY = window.innerHeight - 150;
+    let direction = 1; // 1 = 右, -1 = 左
+    let speed = 3;
+    let isRunning = true;
+
+    // 初始化位置
+    cat.style.left = catX + 'px';
+    cat.style.top = catY + 'px';
+    cat.classList.add('running');
+
+    function moveCat() {
+        if (!isRunning) return;
+
+        // 水平移动
+        catX += speed * direction;
+
+        // 边界检测，碰到边缘就转向
+        if (catX >= window.innerWidth - 120) {
+            direction = -1;
+            cat.classList.add('left');
+            // 随机改变Y位置
+            catY = Math.random() * (window.innerHeight - 200) + 50;
+        } else if (catX <= 0) {
+            direction = 1;
+            cat.classList.remove('left');
+            // 随机改变Y位置
+            catY = Math.random() * (window.innerHeight - 200) + 50;
+        }
+
+        // 更新位置
+        cat.style.left = catX + 'px';
+        cat.style.top = catY + 'px';
+
+        requestAnimationFrame(moveCat);
+    }
+
+    // 开始动画
+    moveCat();
+
+    // 点击猫咪让它停下来/继续跑
+    cat.style.pointerEvents = 'auto';
+    cat.style.cursor = 'pointer';
+    cat.addEventListener('click', () => {
+        isRunning = !isRunning;
+        if (isRunning) {
+            cat.classList.add('running');
+            moveCat();
+        } else {
+            cat.classList.remove('running');
+        }
+    });
+
+    // 窗口大小改变时调整边界
+    window.addEventListener('resize', () => {
+        if (catX > window.innerWidth - 120) {
+            catX = window.innerWidth - 120;
+        }
+        if (catY > window.innerHeight - 100) {
+            catY = window.innerHeight - 150;
+        }
+    });
+</script>
 </body>
 </html>
